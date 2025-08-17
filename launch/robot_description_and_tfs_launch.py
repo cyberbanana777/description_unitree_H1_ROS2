@@ -10,23 +10,23 @@ import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.actions import IncludeLaunchDescription
 
 def generate_launch_description():
-    
     pkg_path = get_package_share_directory('h1_description')
-    launch_description_file = os.path.join(pkg_path, 'launch', 'robot_description_and_tfs_launch.py')
-    launch_rviz_file = os.path.join(pkg_path, 'launch', 'rviz_with_config_launch.py')
-
-    launch_description = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(launch_description_file)
-    )
-    launch_rviz = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(launch_rviz_file)
-    )
+    urdf_file = os.path.join(pkg_path, 'urdf', 'h1_with_hand.urdf')
 
     return LaunchDescription([
-        launch_description,
-        launch_rviz,
+        Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            name='robot_state_publisher',
+            output='screen',
+            parameters=[{'robot_description': open(urdf_file).read()}]
+        ),
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            arguments=['0.0', '0.0', '0.95', '0.0', '0.0', '0.0', 'base_footprint', 'pelvis']
+        ),
+
     ])
