@@ -7,11 +7,13 @@
   <maintainer email="sashagrachev2005@gmail.com">banana-killer</maintainer>
   <license>MIT</license>
 
+  <depend>ros2launch</depend>
   <depend>urdf</depend>
   <depend>xacro</depend>
   <depend>rviz2</depend>
   <depend>gazebo_ros_pkgs</depend>
   <depend>robot_state_publisher</depend>
+  <depend>joint_state_publisher</depend>
   <depend>joint_state_publisher_gui</depend>
   <depend>tf2_ros</depend>
 
