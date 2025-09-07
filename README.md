@@ -4,10 +4,10 @@
 ## Граф связей, который описывается в urdf-файлах.
 
 ### `h1_with_hands.urdf`
-![graph_with_hands](frames/frame_with_hands.pdf)
+![graph_with_hands](frames/frame_with_hands.jpg)
 
 ### `h1.urdf`
-![graph_with_hands](frames/frame_without_hands.pdf)
+![graph_with_hands](frames/frame_without_hands.jpg)
 
 ## Лицензии  
 - Основной код проекта распространяется под [лицензией  MIT](LICENSE).  
